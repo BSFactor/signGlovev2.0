@@ -79,7 +79,7 @@ tensorboard==2.19.0
 tensorboard-data-server==0.7.2
 tensorflow==2.19.0
 tensorflow-estimator==2.13.0
-tensorflow-io-gcs-filesystem==0.31.0
+tensorflow-io-gcs-filesystem
 termcolor==3.1.0
 threadpoolctl==3.6.0
 typing-inspection==0.4.1
@@ -109,3 +109,5 @@ edge-tts==6.1.9
 
 # Development tools (optional - install separately if needed)
 # pip install -r requirements-dev.txt
+pydantic-settings
+email-validator
