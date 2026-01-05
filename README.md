@@ -276,14 +276,45 @@ The compose file starts MongoDB and wires the backend with `MONGO_URI=mongodb://
 
 ## 🧑‍💻 Run Locally (Dev)
 
-Prereqs: Python 3.11+, Node 20+, MongoDB (local or Atlas).
+Prereqs: 
+- Python 3.11+
+- Node 18+
+- **MongoDB** (Required): 
+  - The project expects MongoDB at `mongodb://localhost:27017`.
+  - **Easiest way:** Run `sudo docker compose up -d mongo` to start it in the background.
 
-1) Backend (port 8000 in dev)
+### 1. Backend
+Run from the project root (where `.env` is located):
+
+**Setup Virtual Environment (First time only):**
+```bash
+python3 -m venv venv
 ```
-cd backend
-pip install -r requirements.txt
-uvicorn main:app --host 0.0.0.0 --port 8000
+
+**Run Server:**
+```bash
+# Activate virtual environment
+source ./venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r backend/requirements.txt
+
+# Start Server (Port 8000)
+uvicorn main:app --host 0.0.0.0 --port 8000 --app-dir backend
 ```
+
+### 2. Frontend
+Run in a separate terminal:
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+### 3. First Run (Database Initialization)
+If this is a fresh install, the database will be empty.
+The system will auto-create default roles, but you may need to check the logs or use the admin scripts if you need specific pre-seeded accounts.
+(See `command_log.md` for details on how we initialized the default users).
 2) Frontend (Vite proxies /api -> http://localhost:8000)
 ```
 cd frontend
