@@ -12,7 +12,7 @@ from pydantic_settings import SettingsConfigDict
 
 # backend/
 BASE_DIR = Path(__file__).resolve().parent.parent
-ENV_FILE = BASE_DIR / ".env"
+ENV_FILE = BASE_DIR.parent / ".env"
 
 class Settings(BaseSettings):
     # Pydantic config
