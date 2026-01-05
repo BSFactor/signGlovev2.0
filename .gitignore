@@ -35,3 +35,7 @@ start_sign_glove.bat
 
 #Ignore testing
 !backend/tests/
+
+# Logs
+logs/
+*.log
